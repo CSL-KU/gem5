@@ -7,5 +7,5 @@ kernel_path=$(realpath ../gem5-linux/vmlinux)
 
 for i in "${arr[@]}"
 do
-     gnome-terminal -x bash -c "./build/ARM/gem5.opt -d ../results/be-effect --stats-file=$i.txt configs/spec2006/simpoint_fs.py --cfg=configs/spec2006/arm.cfg --disk-image=${disk_image_path} --num-cpus=4 --mem-size=2048MB --kernel=${kernel_path} --machine-type=VExpress_EMM --mem-type=lpddr2_s4_1066_x32 --simpoint-mode=batch --benchmark=$i --checkpoint-dir=m5out/cpt.7846767145000"
+     ./build/ARM/gem5.opt -d ../results/be-effect --stats-file=$i.txt configs/spec2006/simpoint_fs.py --cfg=configs/spec2006/arm.cfg --disk-image=${disk_image_path} --num-cpus=4 --mem-size=2048MB --kernel=${kernel_path} --machine-type=VExpress_EMM --mem-type=lpddr2_s4_1066_x32 --simpoint-mode=batch --benchmark=$i --checkpoint-dir=m5out/cpt.7846767145000 &
 done
