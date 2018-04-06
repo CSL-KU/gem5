@@ -50,7 +50,7 @@ def system():
         try:
                 path = env['M5_PATH'].split(':')
         except KeyError:
-                path = [ '/dist/m5/system', '/n/poolfs/z/dist/m5/system', '/home/farshchi/projects/gem5/full_system_images' ]
+                path = [ '/dist/m5/system', '/n/poolfs/z/dist/m5/system']
 
         for system.dir in path:
             if os.path.isdir(system.dir):
