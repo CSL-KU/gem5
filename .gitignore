@@ -11,4 +11,5 @@ ext/dramsim2/DRAMSim2
 ext/mcpat/regression/*/*.ouit
 a.out
 util/term/m5term
+m5out/
 
