@@ -12,9 +12,11 @@ export M5_PATH=$(realpath ../full_system_images)
 disk_image_path=$(realpath ../full_system_images/disks/linux-arm-ael.img)
 kernel_path=$(realpath ../gem5-linux/vmlinux)
 
+mkdir -p ../results/fig9-be-effect/stdout
+
 for i in "${arr[@]}"
 do
-     ./build/ARM/gem5.opt -d ../results/fig9-be-effect --stats-file=$i.txt configs/spec2006/simpoint_fs.py --cfg=configs/spec2006/arm.cfg --disk-image=${disk_image_path} --num-cpus=4 --mem-size=2048MB --kernel=${kernel_path} --machine-type=VExpress_EMM --mem-type=lpddr2_s4_1066_x32 --simpoint-mode=batch --benchmark=$i --checkpoint-dir=${chkp_path} &
+     ./build/ARM/gem5.opt -d ../results/fig9-be-effect --stats-file=$i.txt configs/spec2006/simpoint_fs.py --cfg=configs/spec2006/arm.cfg --disk-image=${disk_image_path} --num-cpus=4 --mem-size=2048MB --kernel=${kernel_path} --machine-type=VExpress_EMM --mem-type=lpddr2_s4_1066_x32 --simpoint-mode=batch --benchmark=$i --checkpoint-dir=${chkp_path} 2>&1 | tee ../results/fig9-be-effect/stdout/$i.txt &
 done
 
 wait
